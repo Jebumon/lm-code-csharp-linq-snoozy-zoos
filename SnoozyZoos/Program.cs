@@ -39,14 +39,16 @@ Cuddles, 4
 Wheezy, 7
 */
 
-/*
-var challengeOneZooAnimals = // Write your LINQ Query here
+
+var challengeOneZooAnimals = from animal in zooAnimals
+                             where animal.Age>3 && animal.Age<8
+                             select animal;
 
 foreach (var zooAnimal in challengeOneZooAnimals)
 {
     Console.WriteLine($"{zooAnimal.Name}, {zooAnimal.Age}");
 }
-*/
+
 
 Console.WriteLine("***********************************************");
 
@@ -69,86 +71,100 @@ MUMBLE
 ASMODEUS
 */
 
-/*
-var challengeTwoZooAnimals = // Write your LINQ Query here
+
+var challengeTwoZooAnimals =  from animal in zooAnimals
+                             where animal.Name.Length>=6 
+                              select animal.Name.ToUpper();
+
 
 foreach (var zooAnimal in challengeTwoZooAnimals)
 {
     Console.WriteLine($"{zooAnimal}");
 }
-*/
+
 
 Console.WriteLine("***********************************************");
 
 Console.WriteLine("Challenge 3");
 Console.WriteLine("***********************************************");
 
-/* Challenge 3
+    /* Challenge 3
 
-Given a list of ZooAnimals
-Write a query that returns a list of ZooAnimals ordered by oldest to youngest
+    Given a list of ZooAnimals
+    Write a query that returns a list of ZooAnimals ordered by oldest to youngest
 
-Expected output:
-Jiba, 12
-Slothu, 11
-Mumble, 11
-Asmodeus, 11
-Slothy, 10
-Slotha, 9
-Pingu, 8
-Wheezy, 7
-Pinga, 6
-Dina, 4
-Cuddles, 4
-Kanga, 3
-Dave, 3
-Amber, 2
-*/
+    Expected output:
+    Jiba, 12
+    Slothu, 11
+    Mumble, 11
+    Asmodeus, 11
+    Slothy, 10
+    Slotha, 9
+    Pingu, 8
+    Wheezy, 7
+    Pinga, 6
+    Dina, 4
+    Cuddles, 4
+    Kanga, 3
+    Dave, 3
+    Amber, 2
+    */
 
-/* 
-var challengeThreeZooAnimals = // Write your LINQ Query here
+
+    var challengeThreeZooAnimals = from animal in zooAnimals.OrderByDescending(animal => animal.Age)
+                                   select animal;
 
 foreach (var zooAnimal in challengeThreeZooAnimals)
 {
     Console.WriteLine($"{zooAnimal.Name}, {zooAnimal.Age}");
 }
-*/
+
 
 Console.WriteLine("***********************************************");
 
 Console.WriteLine("Challenge 4");
 Console.WriteLine("***********************************************");
 
-/* Challenge 4
+    /* Challenge 4
 
-Given a list of ZooAnimals
-Write a query to group the animals by their Zoo Location
+    Given a list of ZooAnimals
+    Write a query to group the animals by their Zoo Location
 
-Expected output:
-Zoo Location is: ReptileHouse
-        Hello, my name is Dina.
-        Hello, my name is Asmodeus.
-Zoo Location is: Outback
-        Hello, my name is Kanga.
-        Hello, my name is Amber.
-        Hello, my name is Dave.
-Zoo Location is: BirdSafari
-        Hello, my name is Pingu.
-        Hello, my name is Pinga.
-        Hello, my name is Wheezy.
-        Hello, my name is Mumble.
-Zoo Location is: TigerTerritory
-        Hello, my name is Jiba.
-        Hello, my name is Cuddles.
-Zoo Location is: AnimalAdventure
-        Hello, my name is Slothy.
-        Hello, my name is Slotha.
-        Hello, my name is Slothu.
-*/
+    Expected output:
+    Zoo Location is: ReptileHouse
+            Hello, my name is Dina.
+            Hello, my name is Asmodeus.
+    Zoo Location is: Outback
+            Hello, my name is Kanga.
+            Hello, my name is Amber.
+            Hello, my name is Dave.
+    Zoo Location is: BirdSafari
+            Hello, my name is Pingu.
+            Hello, my name is Pinga.
+            Hello, my name is Wheezy.
+            Hello, my name is Mumble.
+    Zoo Location is: TigerTerritory
+            Hello, my name is Jiba.
+            Hello, my name is Cuddles.
+    Zoo Location is: AnimalAdventure
+            Hello, my name is Slothy.
+            Hello, my name is Slotha.
+            Hello, my name is Slothu.
+    */
 
-// var challengeFourZooAnimals = // Write your LINQ Query here
+    var challengeFourZooAnimals = from animal in zooAnimals
+                                  group animal by animal.Location;
 
-// Can you write a nested foreach loop to create the expected output above?
+    foreach (var animal in challengeFourZooAnimals) 
+    {
+        Console.WriteLine($"{animal}");
+    }
+    
+                                  
+                                
+
+
+ //Can you write a nested foreach loop to create the expected output above?
 
 Console.WriteLine("***********************************************");
 
