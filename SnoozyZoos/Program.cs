@@ -152,12 +152,16 @@ Console.WriteLine("***********************************************");
             Hello, my name is Slothu.
     */
 
-    var challengeFourZooAnimals = from animal in zooAnimals
-                                  group animal by animal.Location;
+    var challengeFourZooAnimals = zooAnimals.GroupBy(animal => animal.Location);
 
-    foreach (var animal in challengeFourZooAnimals) 
+    foreach (var zooLocationGroup in challengeFourZooAnimals) 
     {
-        Console.WriteLine($"{animal}");
+        Console.WriteLine($"Zoo Location is: {zooLocationGroup.Key}");
+        foreach(var animal in zooLocationGroup) 
+        { 
+            Console.WriteLine($"\tHellow, my name is {animal.Name}"); 
+        }
+        
     }
     
                                   
